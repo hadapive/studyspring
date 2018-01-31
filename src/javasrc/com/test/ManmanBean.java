@@ -1,0 +1,30 @@
+package com.test;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ManmanBean
+{
+    private String name;
+    private int age;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age)
+    {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+
+
+}

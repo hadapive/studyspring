@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="commonTool">
+            <aop:pointcut id="userlogin" expression="execution(* com.test.service.StudentService.userLogin(..))"></aop:pointcut>
+            <aop:before method="addUserLog" pointcut-ref="userlogin"></aop:before>
+            <aop:after-returning method="addUserOnline" pointcut-ref="userlogin"></aop:after-returning>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="commonTool" class="com.test.service.CommonTool"></bean>
+    <bean id="userService" class="com.test.service.StudentService"></bean>
+
+</beans>

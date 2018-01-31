@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userpay" class="com.test.pay.UserPay">
+        <property name="payMethod" ref="alipay"></property>
+    </bean>
+
+    <bean id="bankpay" class="com.test.pay.BankPay"></bean>
+    <bean id="alipay" class="com.test.pay.AliPay"></bean>
+
+</beans>

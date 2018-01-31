@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志的级别INFO-->
+<Configuration status="INFO">
+    <Appenders>
+        <!-- 日志输出到控制台 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+        <!-- 日志输出到单个文件 -->
+        <!-- <File name="FileLog" fileName="F:/pro/logs/filelog.log" append="false">
+                  <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+           </File>-->
+
+        <!-- 日志输出到滚动文件 -->
+        <RollingFile name="RollingFile" fileName="G:/pro/logs/file-log.log"
+                     filepattern="G:/pro/logs/file-log%d{yyyy-MM-dd-HH-mm-ss}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 KB" />
+                <TimeBasedTriggeringPolicy modulate="true" interval="24"/>
+            </Policies>
+
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <logger name="mylog" level="info" additivity="false">
+            <appender-ref ref="RollingFile"/>
+        </logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

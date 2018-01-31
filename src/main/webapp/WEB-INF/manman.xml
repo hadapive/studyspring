@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shenyi>
+    <bean id="sb" class="com.test.ManmanBean">
+        <p name="name" value="张三"></p>
+        <p name="age" value="19"></p>
+
+    </bean>
+
+    <bean id="dd" class="sbclass">
+        <p name="name" value="王五"></p>
+        <p name="age" value="21"></p>
+    </bean>
+
+    <file id="fff">
+
+
+    </file>
+
+</shenyi>
